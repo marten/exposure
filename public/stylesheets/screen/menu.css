@@ -1,0 +1,24 @@
+#masthead {
+	position: absolute; top: 0; left: 0; 
+	width: 100%;
+	font-family: Helvetica, Arial, sans-serif;
+	font-size: 0.7em;
+	text-align: right;
+	margin-bottom: 2px;
+}
+
+#masthead ul { display: block; }
+#masthead ul li {
+	float: left;
+}
+
+#masthead a {
+	float: left;
+	padding: 0 10px; margin: 0; line-height: 2em;
+	color: #000; text-decoration: none;
+}
+
+#masthead ul li:first-child a {
+	font-weight: bold;
+	border-left: 0;
+}

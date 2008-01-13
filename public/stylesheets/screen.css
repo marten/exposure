@@ -1,0 +1,19 @@
+/* @override 
+	http://localhost:3000/stylesheets/public.css
+*/
+
+/** BEGIN STYLES */
+
+@import "/stylesheets/screen/menu.css";
+@import "/stylesheets/screen/footer.css";
+
+body  { background: #fff; padding-top: 2.8em; }
+#wrap { background: #fff; }
+
+#wrap {
+	font-family: Helvetica, Arial, sans-serif;
+	width: 810px;
+	margin: 0 auto;
+	padding: 0 12px;
+}
+

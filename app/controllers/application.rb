@@ -7,4 +7,15 @@ class ApplicationController < ActionController::Base
   # See ActionController::RequestForgeryProtection for details
   # Uncomment the :secret if you're not using the cookie session store
   protect_from_forgery # :secret => '1ac55be815a771a2d067f23d90acfa4f'
+  
+  layout 'basic'
+  
+  before_filter :menu
+  
+  private
+    def menu
+      @menu = {'/'     => 'marten veldthuis',
+               '/blog' => 'blog'
+               }
+    end
 end

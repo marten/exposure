@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<title>Marten Veldthuis</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<link href="/stylesheets/reset.css"  media="screen" rel="Stylesheet" type="text/css" />
+	<link href="/stylesheets/screen.css" media="screen" rel="Stylesheet" type="text/css" />
+
+	<script src="/javascripts/prototype.js" type="text/javascript"></script>
+	<script src="/javascripts/effects.js" type="text/javascript"></script>
+	<script src="/javascripts/dragdrop.js" type="text/javascript"></script>
+	<script src="/javascripts/controls.js" type="text/javascript"></script>
+	<script src="/javascripts/application.js" type="text/javascript"></script>
+</head>
+
+<body><div id="wrap">
+	<div id="masthead">
+		<ul><% @menu.each do |url,title| -%>
+			<li><a href="<%= url %>"><%= title %></a></li>
+		<% end %></ul>
+	</div>
+
+	<div id="mastbody">
+		<%= @content_for_layout %>
+	</div>
+	
+	<div id="mastfoot">
+	    Marten Veldthuis © 2005-2008 • all rights reserved, <a href="mailto:marten@veldthuis.com">contact for usage permissions and larger sizes</a>
+	</div>
+
+</div></body>
+</html>
