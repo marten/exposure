@@ -1,2 +1,2 @@
-module BlogHelper
+module PostsHelper
 end
