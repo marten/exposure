@@ -12,8 +12,11 @@ body  { background: #fff; padding-top: 2.8em; }
 
 #wrap {
 	font-family: Helvetica, Arial, sans-serif;
-	width: 810px;
+	width: 910px;
 	margin: 0 auto;
-	padding: 0 12px;
+	padding: 0;
 }
 
+img#main {
+	border: 1px solid #000;
+}
