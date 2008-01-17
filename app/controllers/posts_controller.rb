@@ -25,7 +25,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
-    # TODO Make this fast
+    # TODO Make this Fotocie-style code GO AWAY!
     posts = Post.find(:all, :order => "photo DESC")
     @post = Post.find(params[:id])
     index = posts.index(@post)
