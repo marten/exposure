@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
   
   private
     def menu
-      @menu = [['/', 'marten veldthuis'],
-               ['/posts', 'blog']]
+      @menu = [['/',      'marten veldthuis'],
+               ['/posts', 'blog']            ]
     end
 end
