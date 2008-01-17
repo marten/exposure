@@ -15,7 +15,7 @@
 
   <p>
     <b>Photo</b><br />
-    <%= f.text_field :photo %>
+	<%= f.select :photo, @files, { :include_blank => true } %>
   </p>
 
   <p>

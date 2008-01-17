@@ -1,6 +1,16 @@
 #mastfoot {
-	font-size: 0.5em;
+	font-size: 0.6em;
 	color: #ccc;
 	text-align: center;
-	margin: 2em 0 0 0;
+	margin: 2em 0 2em 0;
+}
+
+#mastfoot a:link,
+#mastfoot a:visited {
+	color: #999;
+}
+
+#mastfoot a:hover,
+#mastfoot a:active {
+	color: #666;
 }

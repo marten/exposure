@@ -1,7 +1,19 @@
 class PostsController < ApplicationController
+
   # GET /posts
   # GET /posts.xml
   def index
+    @post, @prev = Post.find(:all, :order => "photo DESC", :limit => 2)
+    
+    respond_to do |format|
+      format.html { render :action => :show}
+      format.xml { render :xml => @post }
+    end
+  end
+
+  # GET /posts/list
+  # GET /posts/list.xml
+  def list
     @posts = Post.find(:all)
 
     respond_to do |format|
@@ -13,7 +25,12 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.xml
   def show
+    # TODO Make this fast
+    posts = Post.find(:all, :order => "photo DESC")
     @post = Post.find(params[:id])
+    index = posts.index(@post)
+    @prev = posts[index+1]
+    @next = posts[index-1] if index > 0
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,6 +42,7 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
+    @files = Dir[RAILS_ROOT + "/public/db/*.jpg"].map{|i| File.basename(i)}.map{|i| [i,i]}
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,6 +53,7 @@ class PostsController < ApplicationController
   # GET /posts/1/edit
   def edit
     @post = Post.find(params[:id])
+    @files = Dir[RAILS_ROOT + "/public/db/*.jpg"].map{|i| File.basename(i)}.map{|i| [i,i]}
   end
 
   # POST /posts

@@ -1,1 +1,19 @@
-<img id="main" src="/db/<%= @post.photo %>" width="900" />
+<% @title = @post.title %>
+
+<div id="main">
+	<img src="/db/<%= @post.photo %>" width="900" />
+	
+	<% if @prev%>
+	<div id="prev" class="floatlinks">
+		<p><a href="<%= url_for @prev %>"><em>Previous</em></a></p>
+	</div>
+	<% end %>
+	
+	<% if @next %>
+	<div id="next" class="floatlinks">
+		<p><a href="<%= @next.id %>"><em>Next</em></a></p>
+	</div>
+	<% end %>
+</div>
+
+</div>

@@ -17,6 +17,38 @@ body  { background: #fff; padding-top: 2.8em; }
 	padding: 0;
 }
 
-img#main {
+#main {
+	position: relative;
+}
+
+#main > img {
 	border: 1px solid #000;
+}
+
+.floatlinks p a em {
+	position:absolute;
+	top: 0;
+	left: 0;
+	right: auto;
+	width:50%;
+	height:100%;
+	text-indent:-10000px;
+}
+  
+#next p a em {
+	left: auto;
+	right: 0;
+}
+
+#prev a>em {
+	background:url("/images/photonav_prev.png") no-repeat 50% -100px;
+}
+
+#next a>em {
+	background:url("/images/photonav_next.png") no-repeat 50% -100px;
+}
+
+#prev a:hover em, #next a:hover em, #prev a:active em, #next a:active em {
+	background-position: 50% 0px;
+	cursor:pointer;
 }

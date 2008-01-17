@@ -1,3 +1,5 @@
+<% @title = @post.title %>
+
 <h1>Editing post</h1>
 
 <%= error_messages_for :post %>
@@ -15,7 +17,7 @@
 
   <p>
     <b>Photo</b><br />
-    <%= f.text_field :photo %>
+	<%= f.select :photo, @files, { :include_blank => true } %>
   </p>
 
   <p>
