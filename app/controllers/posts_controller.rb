@@ -3,7 +3,16 @@ class PostsController < ApplicationController
   # GET /posts
   # GET /posts.xml
   def index
-    @post, @prev = Post.find(:all, :order => "photo DESC", :limit => 2)
+    @post, @prev = Post.find(:all, :order => "created_at DESC", :limit => 2)
+    
+    @menu = [['/',            'marten veldthuis'],
+             [url_for(@prev), '&larr; previous'],
+             [nil,            @post.title, :selected],
+             ['#comments',    '[no comments]']]
+    
+    if not @post
+      redirect_to new_post_path
+    end
     
     respond_to do |format|
       format.html { render :action => :show}
@@ -26,11 +35,18 @@ class PostsController < ApplicationController
   # GET /posts/1.xml
   def show
     # TODO Make this Fotocie-style code GO AWAY!
-    posts = Post.find(:all, :order => "photo DESC")
+    posts = Post.find(:all, :order => "created_at DESC")
     @post = Post.find(params[:id])
     index = posts.index(@post)
     @prev = posts[index+1]
     @next = posts[index-1] if index > 0
+
+    @menu =  [['/',            'marten veldthuis']]
+    @menu <<  [url_for(@prev), '&larr; previous', (@prev and @next ? :tight : nil)] if @prev
+    @menu <<  ['/posts',       'latest', :tight] if @prev and @next
+    @menu <<  [url_for(@next), 'next &rarr;'] if @next
+    @menu += [[nil,            @post.title, :selected],
+              [post_comments_url(@post),    '[no comments]']]
 
     respond_to do |format|
       format.html # show.html.erb

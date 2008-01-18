@@ -16,8 +16,14 @@
 
 <body><div id="wrap">
 	<div id="masthead">
-		<ul><% @menu.each do |url,title| -%>
-			<li><a href="<%= url %>"><%= title %></a></li>
+		<ul><% @menu.each do |url,title,option| -%>
+			<% if url %>
+			<li style="<%= 'font-weight: bold;' if option == :selected %>
+			           <%= 'padding: 0 4px;' if option == :tight %>"><a href="<%= url %>"><%= title %></a></li>
+			<% else %>
+			<li style="<%= 'font-weight: bold;' if option == :selected %>
+			           <%= 'padding: 0 4px;' if option == :tight %>"><%= title %></li>
+			<% end %>
 		<% end %></ul>
 	</div>
 

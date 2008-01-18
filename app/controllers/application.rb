@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
   
   before_filter :menu
   
-  private
+  protected
     def menu
-      @menu = [['/',      'marten veldthuis'],
+      @menu = [['/',      'marten veldthuis', :selected],
                ['/posts', 'blog']            ]
     end
 end

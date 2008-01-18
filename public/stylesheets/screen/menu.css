@@ -10,15 +10,14 @@
 #masthead ul { display: block; }
 #masthead ul li {
 	float: left;
+	padding: 0 20px 0 0; margin: 0; line-height: 2em;
 }
 
 #masthead a {
 	float: left;
-	padding: 0 10px; margin: 0; line-height: 2em;
 	color: #000; text-decoration: none;
 }
 
 #masthead ul li:first-child a {
-	font-weight: bold;
-	border-left: 0;
+	padding-left: 10px;
 }
