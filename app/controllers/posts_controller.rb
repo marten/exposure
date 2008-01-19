@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @menu = [['/',            'marten veldthuis'],
              [url_for(@prev), '&larr; previous'],
              [nil,            @post.title, :selected],
-             ['#comments',    '[no comments]']]
+             [post_comments_url(@post),    '[no comments]']]
     
     if not @post
       redirect_to new_post_path
