@@ -11,7 +11,7 @@
 	<tr><th>exposure bias</th>	<td><%= post.exif[:exposure_bias_value].to_f %></td></tr>
 	<tr><th>metering mode</th>	<td><%= post.exif[:metering_mode] %></td></tr>
 	<tr><th>ISO</th>			<td><%= post.exif[:iso_speed_ratings] %></td></tr>
-	<tr><th>flash</th>			<td><%= post.exif[:flash] == 0 ? 'no' : exif[:flash] %></td></tr>
+	<tr><th>flash</th>			<td><%= post.exif[:flash] == 0 ? 'no' : post.exif[:flash] %></td></tr>
 	<tr><th>RAW converter</th>	<td><%= post.exif[:software] || "CaptureOne Pro" %></td></tr>
 <% #	<tr><th>cropped</th>		<td>n/a</td></tr> %>
 </table>
