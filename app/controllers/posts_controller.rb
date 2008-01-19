@@ -17,6 +17,10 @@ class PostsController < ApplicationController
     respond_to do |format|
       format.html { render :action => :show}
       format.xml { render :xml => @post }
+      format.rss { 
+        @posts = Post.find(:all, :order => "created_at DESC", :limit => 50)
+        render :layout => false 
+        }
     end
   end
 
