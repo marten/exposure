@@ -10,7 +10,7 @@ xml.rss(:version=>"2.0"){
       xml.item do
         xml.title(post.title)
         xml.category()
-        xml.description("<img width=\"150\" src=\"http://marten.veldthuis.com/db/#{post.photo}\" style=\"float: right\" />" + post.caption)
+        xml.description( render(:partial => "comments/post", :locals => {:post => post}) )
         xml.pubDate(post.created_at.strftime("%a, %d %b %Y %H:%M:%S %z"))
         xml.link(post_url(post))
         xml.guid(post_url(post))

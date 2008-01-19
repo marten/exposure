@@ -1,21 +1,5 @@
 <h1><a href="<%= url_for(@post) %>"><%= @post.title %></a></h1>
-<a href="<%= url_for(@post) %>"><img src="/db/<%= @post.photo %>" style="float: right" width="150"/></a>
-<%= textilize @post.caption %>
-
-<table border="0" cellspacing="5" cellpadding="5">
-	<tr><th>captured</th>		<td><%= @exif[:date_time_digitized].to_formatted_s(:long) %></td></tr>
-	<tr><th>camera</th>			<td><%= @exif[:model].titleize %></td></tr>
-	<tr><th>focal length</th>	<td><%= @exif[:focal_length].to_f.to_i %>mm</td></tr>
-	<tr><th>aperture</th>		<td>f/<%= @exif[:f_number].to_f %></td></tr>
-	<tr><th>shutter speed</th>	<td><%= @exif[:exposure_time].to_s %></td></tr>
-	<tr><th>shooting mode</th>	<td><%= @exif[:exposure_program] %></td></tr>
-	<tr><th>exposure bias</th>	<td><%= @exif[:exposure_bias_value].to_f %></td></tr>
-	<tr><th>metering mode</th>	<td><%= @exif[:metering_mode] %></td></tr>
-	<tr><th>ISO</th>			<td><%= @exif[:iso_speed_ratings] %></td></tr>
-	<tr><th>flash</th>			<td><%= @exif[:flash] == 0 ? 'no' : @exif[:flash] %></td></tr>
-	<tr><th>RAW converter</th>	<td><%= @exif[:software] || "CaptureOne Pro" %></td></tr>
-<% #	<tr><th>cropped</th>		<td>n/a</td></tr> %>
-</table>
+<%= render :partial => "post" %>
 
 <% @post.comments.each do |comment| %>
 	<h2>comment by <%= comment.name %> at <%= comment.created_at.to_formatted_s %></h2>

@@ -4,7 +4,6 @@ class CommentsController < ApplicationController
   
   def index
     @post = Post.find(params[:post_id])
-    @exif = EXIFR::JPEG.new(File.join(RAILS_ROOT, 'public', 'db', @post.photo)).exif.to_hash
   end
 
   # POST /comments

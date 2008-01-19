@@ -1,0 +1,17 @@
+<a href="<%= url_for(post) %>"><img src="/db/<%= post.photo %>" style="float: right" width="150"/></a>
+<%= textilize post.caption %>
+
+<table border="0" cellspacing="5" cellpadding="5">
+	<tr><th>captured</th>		<td><%= post.exif[:date_time_digitized].to_formatted_s(:long) %></td></tr>
+	<tr><th>camera</th>			<td><%= post.exif[:model].titleize %></td></tr>
+	<tr><th>focal length</th>	<td><%= post.exif[:focal_length].to_f.to_i %>mm</td></tr>
+	<tr><th>aperture</th>		<td>f/<%= post.exif[:f_number].to_f %></td></tr>
+	<tr><th>shutter speed</th>	<td><%= post.exif[:exposure_time].to_s %></td></tr>
+	<tr><th>shooting mode</th>	<td><%= post.exif[:exposure_program] %></td></tr>
+	<tr><th>exposure bias</th>	<td><%= post.exif[:exposure_bias_value].to_f %></td></tr>
+	<tr><th>metering mode</th>	<td><%= post.exif[:metering_mode] %></td></tr>
+	<tr><th>ISO</th>			<td><%= post.exif[:iso_speed_ratings] %></td></tr>
+	<tr><th>flash</th>			<td><%= post.exif[:flash] == 0 ? 'no' : exif[:flash] %></td></tr>
+	<tr><th>RAW converter</th>	<td><%= post.exif[:software] || "CaptureOne Pro" %></td></tr>
+<% #	<tr><th>cropped</th>		<td>n/a</td></tr> %>
+</table>
