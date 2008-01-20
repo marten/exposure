@@ -62,8 +62,9 @@ class PostsController < ApplicationController
   # GET /posts/new.xml
   def new
     @post = Post.new
-    @files = Dir[RAILS_ROOT + "/public/db/*.jpg"].map{|i| File.basename(i)}.map{|i| [i,i]}
-
+    posts = Post.find(:all).map(&:photo)
+    @files = Dir[RAILS_ROOT + "/public/db/*.jpg"].map{|i| File.basename(i)}.map{|i| [i,i]}.delete_if{|i| posts.include?(i[0]) }
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @post }
