@@ -12,13 +12,14 @@ body  { background: #fff; padding-top: 2.8em; }
 
 #wrap {
 	font-family: Helvetica, Arial, sans-serif;
-	width: 910px;
+	width: 902px;
 	margin: 0 auto;
 	padding: 0;
 }
 
 #main {
 	position: relative;
+	text-align: center;
 }
 
 #main > img {
