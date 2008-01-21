@@ -12,7 +12,7 @@ class PostsController < ApplicationController
     
     respond_to do |format|
       format.html { 
-        @menu = render_to_string :partial => "shared/menu_posts", :locals => {:prv => @prev, :post => @post}
+        @menu = render_to_string :partial => "shared/menu_posts", :locals => {:prv => @prev, :nxt => nil, :post => @post}
         render :action => :show
         }
       format.xml { render :xml => @post }
