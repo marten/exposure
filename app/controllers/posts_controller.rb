@@ -2,16 +2,19 @@ class PostsController < ApplicationController
 
   # GET /posts
   # GET /posts.xml
+  # GET /posts.rss
   def index
     @post, @prev = Post.find(:all, :order => "created_at DESC", :limit => 2)
-    @menu = render_to_string :partial => "shared/menu_posts", :locals => {:prv => @prev, :post => @post}
     
     if not @post
       redirect_to new_post_path
     end
     
     respond_to do |format|
-      format.html { render :action => :show}
+      format.html { 
+        @menu = render_to_string :partial => "shared/menu_posts", :locals => {:prv => @prev, :post => @post}
+        render :action => :show
+        }
       format.xml { render :xml => @post }
       format.rss { 
         @posts = Post.find(:all, :order => "created_at DESC", :limit => 50)

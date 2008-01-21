@@ -4,7 +4,7 @@ class Post < ActiveRecord::Base
   validates_presence_of :title, :caption, :photo
   
   def exif
-    EXIFR::JPEG.new(File.join(RAILS_ROOT, 'public', 'db', photo)).exif.to_hash
+    EXIFR::JPEG.new(File.join(RAILS_ROOT, 'public', 'db', photo)).exif.to_hash rescue nil
   end
 
 end
