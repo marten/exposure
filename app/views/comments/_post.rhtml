@@ -2,7 +2,7 @@
 <%= textilize post.caption %>
 
 <table border="0" cellspacing="5" cellpadding="5">
-	<tr><th>captured</th>		<td><%= (post.exif[:date_time_digitized] || post.exif[:date_time_originalw]).to_formatted_s(:long) %></td></tr>
+	<tr><th>captured</th>		<td><%= (post.exif[:date_time_digitized] || post.exif[:date_time_original]).to_formatted_s(:long) %></td></tr>
 	<tr><th>camera</th>			<td><%= post.exif[:model].titleize %></td></tr>
 	<tr><th>focal length</th>	<td><%= post.exif[:focal_length].to_f.to_i %>mm</td></tr>
 	<tr><th>aperture</th>		<td>f/<%= post.exif[:f_number].to_f %></td></tr>
