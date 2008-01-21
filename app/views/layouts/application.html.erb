@@ -12,24 +12,15 @@
 
 <body><div id="wrap">
 	<div id="masthead">
-		<ul><% @menu.each do |url,title,option| -%>
-			<% if url %>
-			<li style="<%= 'font-weight: bold;' if option == :selected %>
-			           <%= 'padding: 0 4px;' if option == :tight %>"><a href="<%= url %>"><%= title %></a></li>
-			<% else %>
-			<li style="<%= 'font-weight: bold;' if option == :selected %>
-			           <%= 'padding: 0 4px;' if option == :tight %>"><%= title %></li>
-			<% end %>
-		<% end %></ul>
+		<%= @menu ? @menu : render(:partial => "shared/menu_application") %>
 	</div>
 
 	<div id="mastbody">
-		<%= @content_for_layout %>
+		<%= yield %>
 	</div>
 	
 	<div id="mastfoot">
 	    Anything you want in your footer
 	</div>
-
 </div></body>
 </html>

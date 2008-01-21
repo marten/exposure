@@ -1,0 +1,15 @@
+<ul>
+	<li><a href="/">YOUR SITE</a></li>
+	<% if prv %>
+	<li <%= %(style="padding: 0 8px 0 0") if nxt %>><a href="<%= post_url(prv) %>">&larr; previous</a></li>
+		<% if nxt %>
+	<li <%= %(style="padding: 0 8px 0 0") if nxt %>><a href="/posts">latest</a></li>
+		<% end %>
+	<% end %>
+	<% if nxt %>
+	<li><a href="<%= post_url(nxt) %>">next &rarr;</a></li>
+	<% end %>
+	<li style="font-weight: bold"><%= post.title %></li>
+	<li><a href="<%= post_comments_url(post) %>">[<%= pluralize post.comments.size, 'comments' %>]</a></li>
+</ul>
+ 
