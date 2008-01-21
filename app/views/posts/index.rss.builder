@@ -1,8 +1,8 @@
 xml.instruct! :xml, :version=>"1.0" 
 xml.rss(:version=>"2.0"){
   xml.channel{
-    xml.title("Marten Veldthuis")
-    xml.link("http://marten.veldthuis.com/posts.rss")
+    xml.title("YOUR SITE NAME")
+    xml.link("YOUR URL TO RSS FEED")
     xml.description("Photography, design, code. Musings of a creative developer.")
     xml.language('en-us')
 
