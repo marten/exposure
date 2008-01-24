@@ -4,12 +4,12 @@
 <% @post.comments.each do |comment| %>
 <div class="comment">
 	<% if not comment.url.blank? %>
-	<h2><%= comment.created_at.strftime("%a %b %dth at %H:%M") %>, <a href="<%= comment.url %>"><%= comment.name %></a> said:</h2>
+	<h2><%= comment.created_at.strftime("%a %b %dth at %H:%M") %>, <a href="<%= sanitize(comment.url) %>"><%= sanitize(comment.name) %></a> said:</h2>
 	<% else %>
-	<h2><%= comment.created_at.strftime("%a %b %dth at %H:%M") %>, <%= comment.name %> said:</h2>
+	<h2><%= comment.created_at.strftime("%a %b %dth at %H:%M") %>, <%= sanitize(comment.name) %> said:</h2>
 	<% end %>
 	
-	<%= textilize comment.body %>
+	<%= markup sanitize(comment.body) %>
 </div>
 <% end %>
 

@@ -1,6 +1,6 @@
 <div class="post">
 	<a href="<%= url_for(post) %>"><img class="float-right-inline" src="/db/<%= post.photo %>" width="150"/></a>
-	<%= textilize post.caption %>
+	<%= markup post.caption %>
 
 	<% if post.exif %>
 	<table border="0" cellspacing="5" cellpadding="5">
