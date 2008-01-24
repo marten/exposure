@@ -16,6 +16,8 @@
 		<tr><th>flash</th>					<td><%= post.exif[:flash] == 0 ? 'no' : post.exif[:flash] %></td></tr>
 		<% if post.exif[:software] =~ /^Adobe Photoshop CS3/ %>
 		<tr><th>RAW converter</th>			<td>Adobe Photoshop CS3</td></tr>
+		<% elsif post.exif[:software] =~ /^Capture One/ %>
+		<tr><th>RAW converter</th>			<td>Capture One Pro</td></tr>
 		<% else %>
 		<tr><th>RAW converter</th>			<td><%= post.exif[:software] || "CaptureOne Pro" %></td></tr>
 		<% end %>
