@@ -1,5 +1,5 @@
 class Post < ActiveRecord::Base
-  has_many :comments, :dependent => :destroy
+  has_many :comments, :dependent => :destroy, :order => "created_at ASC"
   
   validates_presence_of :title, :caption, :photo
   

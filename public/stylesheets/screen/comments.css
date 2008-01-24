@@ -8,6 +8,13 @@
 	text-align: justify;
 }
 
+#comments h1 {
+	font-size: 2em; font-weight: normal; 
+	margin-top: -1em; margin-bottom: 0.5em;
+}
+
+#comments h1 a { text-decoration: none; color: #000; }
+
 #comments form {
 	border-top: 1px solid #aaa;
 	padding-top: 1.5em;

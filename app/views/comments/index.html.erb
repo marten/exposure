@@ -3,7 +3,7 @@
 
 <% @post.comments.each do |comment| %>
 <div class="comment">
-	<% if comment.url %>
+	<% if not comment.url.blank? %>
 	<h2><%= comment.created_at.strftime("%a %b %dth at %H:%M") %>, <a href="<%= comment.url %>"><%= comment.name %></a> said:</h2>
 	<% else %>
 	<h2><%= comment.created_at.strftime("%a %b %dth at %H:%M") %>, <%= comment.name %> said:</h2>
