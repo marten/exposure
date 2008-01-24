@@ -2,32 +2,39 @@
 <%= render :partial => "post" %>
 
 <% @post.comments.each do |comment| %>
-	<h2>comment by <%= comment.name %> at <%= comment.created_at.to_formatted_s %></h2>
+<div class="comment">
+	<% if comment.url %>
+	<h2><%= comment.created_at.strftime("%a %b %dth at %H:%M") %>, <a href="<%= comment.url %>"><%= comment.name %></a> said:</h2>
+	<% else %>
+	<h2><%= comment.created_at.strftime("%a %b %dth at %H:%M") %>, <%= comment.name %> said:</h2>
+	<% end %>
+	
 	<%= textilize comment.body %>
+</div>
 <% end %>
 
 <% form_for :comment, @post.comments.new do |f| %>
 	<p>
-		<b>Name:</b><br />
-		<%= f.text_field :name %>
+		<label for="comment_name">Name:</label>
+		<%= f.text_field :name, {:style => "width: 330px;"} %>
 	</p>
 	
 	<p>
-		<b>E-mail:</b><br />
-		<%= f.text_field :email %>
+		<label for="comment_email">E-mail:</label>
+		<%= f.text_field :email, {:style => "width: 330px;"} %>
 	</p>
 
 	<p>
-		<b>Homepage:</b><br />
-		<%= f.text_field :url %>
+		<label for="comment_url">Homepage:</label>
+		<%= f.text_field :url, {:style => "width: 330px;"} %>
 	</p>
 
 	<p>
-		<b>Comment:</b><br />
-		<%= f.text_area :body %>
+		<label for="comment_body">Your comment:</label>
+		<%= f.text_area :body, {:rows => 8, :style => "width: 330px;"} %>
 	</p>
 	
-	<p>
+	<p style="margin-left: 120px; padding-left: 1em">
 		<%= f.submit "Create" %>
 	</p>
 <% end %>
