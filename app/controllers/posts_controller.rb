@@ -55,13 +55,23 @@ class PostsController < ApplicationController
   # GET /posts/new
   # GET /posts/new.xml
   def new
-    @post = Post.new
-    posts = Post.find(:all).map(&:photo)
-    @files = Dir[RAILS_ROOT + "/public/db/*.jpg"].map{|i| File.basename(i)}.map{|i| [i,i]}.delete_if{|i| posts.include?(i[0]) }
-    
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @post }
+    case request.method
+    when :get || params["post"]["photo"].nil?
+      @post = Post.new
+      posts = Post.find(:all).map(&:photo)
+      @files = Dir[RAILS_ROOT + "/public/db/*.jpg"].map{|i| File.basename(i)}.delete_if{|i| posts.include?(i) }
+      
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @files }
+      end
+    when :post
+      @post = Post.new
+      @photo = params["post"]["photo"]
+      respond_to do |format|
+        format.html { render :action => 'new_with_photo' }# new.html.erb
+        format.xml  { render :xml => @post }
+      end
     end
   end
 
