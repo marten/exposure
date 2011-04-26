@@ -7,7 +7,7 @@ class PostsController < ApplicationController
     @post, @prev = Post.find(:all, :order => "created_at DESC", :limit => 2)
     
     if not @post
-      redirect_to new_post_path
+      redirect_to new_post_path and return
     end
     
     respond_to do |format|
